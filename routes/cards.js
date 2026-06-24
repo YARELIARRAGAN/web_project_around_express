@@ -4,11 +4,10 @@ const path = require('path');
 
 
 router.get('/', (req, res) => {
-  console.log('ruta cards alcanzada');
   fs.readFile(path.join(__dirname, '../data/cards.json'), 'utf8', (err, data) => {
     if(err) {
       return res.status(500).json({
-        message: "Algo ha salido mal"
+        message: "Internal Server Error"
       })
     }
     res.json(JSON.parse(data));

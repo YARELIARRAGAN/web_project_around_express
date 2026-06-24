@@ -10,12 +10,12 @@ app.use('/cards', cards);
 app.use('/users', users);
 app.use( (req, res) => {
   res.status(404).json({
-    message: "No existe esa pagina"
+    message: "Not found"
   });
 })
 
 
 app.listen(PORT, () => {
-  console.log(`http://localhost:${PORT}`);
+  console.log(`Server Running on http://localhost:${PORT}`);
 
 })
