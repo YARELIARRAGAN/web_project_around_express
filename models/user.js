@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const userSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -18,7 +19,7 @@ const userSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator: function(v) {
-        return /((https?:\/\/)?(www\.)?)?[a-zA-Z0-9._~:\/?%#\[\]@!$&'()*+,;=]{1,})/.test(v);
+        return /((https?:\/\/)?(www\.)?[a-zA-Z0-9._~:\/?%#\[\]@!$&'()*+,;=]{1,})/.test(v);
       },
       message: props => `${props.value} no es un avatar valido`
     }
