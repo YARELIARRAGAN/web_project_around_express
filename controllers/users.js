@@ -16,7 +16,7 @@ module.exports.getUserById = async (req, res) => {
   try {
     const userById = await User.findById(req.params.userId)
       .orFail(() => {
-        crearOrFail('No se ha encontrado ninguna tarjeta con esa ID');
+        crearOrFail('Usuario no encontrado');
       });
     res.json({ data: userById });
   } catch (err) {

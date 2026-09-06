@@ -13,10 +13,16 @@ La API expone los siguientes endpoints:
 | GET | `/users` | Devuelve la lista completa de usuarios |
 | GET | `/cards` | Devuelve la lista completa de tarjetas |
 | GET | `/users/:_id` | Devuelve un usuario por su ID |
+| POST| `/users` | Añade un usuario |
+| POST| `/cards` | Añade una carta nueva |
+| PUT | `/users/:_id/likes` | Añade el id del del usuario al array |
+| DELETE | `/cards` | Elimina una carta |
+| DELETE | `/cards/:cardId/likes` | Elimina el id del usuario que ha dado like |
 
 ### Respuestas de error
 
-- Usuario no encontrado: `{ "message": "ID de usuario no encontrado" }`
+- Usuario no encontrado: `{ "message": "Usuario no encontrado" }`
+- Tarjeta no encontrado: `{ "message": "Tarjeta no encontrada" }`
 - Ruta inexistente: `{ "message": "Not found" }`
 - Error del servidor: `{ "message": "Internal Server Error" }`
 
@@ -34,12 +40,19 @@ La API expone los siguientes endpoints:
 
 ```
 web_project_around_express/
-├── data/
-│   ├── users.json
-│   └── cards.json
+├── controllers/
+│   ├── cards.json
+│   └── users.json
+├── errors/
+│   ├── constants.js
+│   ├── create.js
+|   └── reponse.js  
+├── models/
+│   ├── card.json
+│   └── user.json
 ├── routes/
-│   ├── users.js
-│   └── cards.js
+│   ├── card.json
+│   └── user.json
 ├── app.js
 └── package.json
 ```

@@ -32,7 +32,7 @@ module.exports.deleteCard = async (req, res) => {
   try {
     const deleteCard = await Card.findByIdAndDelete(cardId)
       .orFail(() => {
-        crearOrFail('No se ha encontrado ninguna tarjeta con esa ID');
+        crearOrFail('Tarjeta no encontrada');
       });
     res.json(deleteCard);
   } catch (err) {
@@ -56,7 +56,7 @@ module.exports.addLikeCard = async (req, res) => {
       { new: true },
     )
       .orFail(() => {
-        crearOrFail('No se ha encontrado ninguna tarjeta con esa ID');
+        crearOrFail('Tarjeta no encontrada');
       });
     res.json({ data: addLikeCard });
   } catch (err) {
@@ -81,7 +81,7 @@ module.exports.deleteLikeCard = async (req, res) => {
       { new: true },
     )
       .orFail(() => {
-        crearOrFail('No se ha encontrado ninguna tarjeta con esa ID');
+        crearOrFail('Tarjeta no encontrada');
       });
     res.json({ data: deleteLikeCard });
   } catch (err) {
